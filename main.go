@@ -46,8 +46,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					}
 				case "update":
 					cafe.UpdateCafe()
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("done update.")).Do(); err != nil {
+						log.Print(err)
+					}
 				case "学食更新":
 					cafe.UpdateCafe()
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("学食更新しました。")).Do(); err != nil {
+						log.Print(err)
+					}
 
 				case "月":
 					meshi := cafe.RequestCafeMon()
