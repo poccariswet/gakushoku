@@ -44,15 +44,43 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("学食情報を更新するなら\n'update', '学食更新'\nそれぞれの学食がみたいなら\n'月' ,'火' ,'水' ,'木' ,'金' \nを入力してください")).Do(); err != nil {
 						log.Print(err)
 					}
-
 				case "update":
 					cafe.UpdateCafe()
 				case "学食更新":
 					cafe.UpdateCafe()
 
-				// case "月":
+				case "月":
+					meshi := cafe.RequestCafeMon()
+					meshi2 := fmt.Sprintf("曜日:%s\n日替わり:%s\n丼もの:%s\n魚:%s\nサラダ:%s\nデザート:%s\n一品:%s\nパスタ:%s\n麺類:%s\n夕方セット:%s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salad, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(meshi2)).Do(); err != nil {
+						log.Print(err)
+					}
+				case "火":
+					meshi := cafe.RequestCafeTue()
+					meshi2 := fmt.Sprintf("曜日:%s\n日替わり:%s\n丼もの:%s\n魚:%s\nサラダ:%s\nデザート:%s\n一品:%s\nパスタ:%s\n麺類:%s\n夕方セット:%s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salad, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(meshi2)).Do(); err != nil {
+						log.Print(err)
+					}
+				case "水":
+					meshi := cafe.RequestCafeWen()
+					meshi2 := fmt.Sprintf("曜日:%s\n日替わり:%s\n丼もの:%s\n魚:%s\nサラダ:%s\nデザート:%s\n一品:%s\nパスタ:%s\n麺類:%s\n夕方セット:%s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salad, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(meshi2)).Do(); err != nil {
+						log.Print(err)
+					}
+				case "木":
+					meshi := cafe.RequestCafeThu()
+					meshi2 := fmt.Sprintf("曜日:%s\n日替わり:%s\n丼もの:%s\n魚:%s\nサラダ:%s\nデザート:%s\n一品:%s\nパスタ:%s\n麺類:%s\n夕方セット:%s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salad, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(meshi2)).Do(); err != nil {
+						log.Print(err)
+					}
+				case "金":
+					meshi := cafe.RequestCafeFri()
+					meshi2 := fmt.Sprintf("曜日:%s\n日替わり:%s\n丼もの:%s\n魚:%s\nサラダ:%s\nデザート:%s\n一品:%s\nパスタ:%s\n麺類:%s\n夕方セット:%s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salad, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(meshi2)).Do(); err != nil {
+						log.Print(err)
+					}
 				default:
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("学食 と入力してください")).Do(); err != nil {
 						log.Print(err)
 					}
 				}

@@ -42,7 +42,7 @@ func GetmenuTue(url string, c chan []string) {
 		t := s.Find("td").First().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(100 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(300 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -54,7 +54,7 @@ func GetmenuWen(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(200 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(400 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -66,7 +66,7 @@ func GetmenuThu(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(300 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(500 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -78,7 +78,7 @@ func GetmenuFri(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(400 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(600 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -95,7 +95,6 @@ func UpdateCafe() {
 	go GetmenuThu(url, c)
 	go GetmenuFri(url, c)
 	mon, tue, wen, thu, fri := <-c, <-c, <-c, <-c, <-c
-
 
 	menu = append(menu, menus{
 		Week:       "Monday",
@@ -161,6 +160,8 @@ func UpdateCafe() {
 		Menrui:     fri[8],
 		EveningSet: fri[9],
 	})
+
+	// fmt.Println(reflect.TypeOf(menu))
 
 	bytes, _ := json.Marshal(menu)
 	ioutil.WriteFile("./json/meshi.json", bytes, os.ModePerm)
