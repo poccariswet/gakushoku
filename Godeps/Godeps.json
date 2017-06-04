@@ -7,6 +7,15 @@
 	],
 	"Deps": [
 		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v1.0.1-2-g152b1a2",
+			"Rev": "152b1a2c8f5d0340f658bb656032a39b94e52958"
+		},
+		{
+			"ImportPath": "github.com/andybalholm/cascadia",
+			"Rev": "349dd0209470eabd9514242c688c403c0926d266"
+		},
+		{
 			"ImportPath": "github.com/line/line-bot-sdk-go/linebot",
 			"Comment": "1.0.0-46-gc87b736",
 			"Rev": "c87b736869c5b513726a60407afa5c31d4a94aa4"
@@ -17,6 +26,14 @@
 		},
 		{
 			"ImportPath": "golang.org/x/net/context/ctxhttp",
+			"Rev": "3470a06c1357df533e251f14d3a181f67396fe35"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html",
+			"Rev": "3470a06c1357df533e251f14d3a181f67396fe35"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html/atom",
 			"Rev": "3470a06c1357df533e251f14d3a181f67396fe35"
 		}
 	]

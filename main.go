@@ -39,8 +39,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
-					log.Print(err)
+				if message.Text == "学食" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("update\nまたは\n`月`,`火`,`水`,`木`,`金`\nを入力してください")).Do(); err != nil {
+						log.Print(err)
+					}
+				} else {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+						log.Print(err)
+					}
 				}
 			}
 		}
