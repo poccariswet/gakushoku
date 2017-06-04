@@ -42,7 +42,7 @@ func GetmenuTue(url string, c chan []string) {
 		t := s.Find("td").First().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(600 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(300 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -54,7 +54,7 @@ func GetmenuWen(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(700 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(600 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -66,7 +66,7 @@ func GetmenuThu(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(800 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(900 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
@@ -78,7 +78,7 @@ func GetmenuFri(url string, c chan []string) {
 		t := s.Find("td").First().Next().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(1000 * time.Millisecond) //Mondayのgetを待ってる
+	time.Sleep(1200 * time.Millisecond) //Mondayのgetを待ってる
 	c <- m
 	// return m
 }
