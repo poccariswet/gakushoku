@@ -164,6 +164,6 @@ func UpdateCafe() {
 	// fmt.Println(reflect.TypeOf(menu))
 
 	bytes, _ := json.Marshal(menu)
-	ioutil.WriteFile("json/meshi.json", bytes, os.ModePerm)
+	ioutil.WriteFile("./json/meshi.json", bytes, os.ModePerm)
 	fmt.Println("success")
 }
