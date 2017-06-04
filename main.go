@@ -10,7 +10,7 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, Facebook Bot")
+	fmt.Fprintf(w, "Hello, LINE Bot")
 }
 
 func callbackHandler(w http.ResponseWriter, r *http.Request) {
@@ -20,7 +20,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	)
 	if err != nil {
 		log.Fatal(err)
-	}
+	} else {
+    fmt.Fprintf(w, "Maybe goooood!")
+  }
 
 	events, err := bot.ParseRequest(r)
 	if err != nil {
