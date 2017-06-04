@@ -9,10 +9,13 @@ and using this module
 
 ## Installation
 You can install like this
-
+```
 $ go get github.com/line/line-bot-sdk-go
+```
 
+```
 $ go get github.com/PuerkitoBio/goquery
+```
 
 ## Equipments
 - Go
