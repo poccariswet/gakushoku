@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -24,62 +23,58 @@ type menus struct {
 }
 
 //[]string
-func GetmenuMon(url string, c chan []string) {
+func GetmenuMon(url string, c1 chan []string) {
 	doc, _ := goquery.NewDocument(url)
 	var m []string
 	doc.Find("div > div > section > table > tbody > tr").Each(func(_ int, s *goquery.Selection) {
 		t := s.Find("td").First().Text()
 		m = append(m, t)
 	})
-	c <- m
+	c1 <- m
 	// return m
 }
 
-func GetmenuTue(url string, c chan []string) {
+func GetmenuTue(url string, c2 chan []string) {
 	doc, _ := goquery.NewDocument(url)
 	var m []string
 	doc.Find("div > div > section > table > tbody > tr").Each(func(_ int, s *goquery.Selection) {
 		t := s.Find("td").First().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(300 * time.Millisecond) //Mondayのgetを待ってる
-	c <- m
+	c2 <- m
 	// return m
 }
 
-func GetmenuWen(url string, c chan []string) {
+func GetmenuWen(url string, c3 chan []string) {
 	doc, _ := goquery.NewDocument(url)
 	var m []string
 	doc.Find("div > div > section > table > tbody > tr").Each(func(_ int, s *goquery.Selection) {
 		t := s.Find("td").First().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(600 * time.Millisecond) //Mondayのgetを待ってる
-	c <- m
+	c3 <- m
 	// return m
 }
 
-func GetmenuThu(url string, c chan []string) {
+func GetmenuThu(url string, c4 chan []string) {
 	doc, _ := goquery.NewDocument(url)
 	var m []string
 	doc.Find("div > div > section > table > tbody > tr").Each(func(_ int, s *goquery.Selection) {
 		t := s.Find("td").First().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(900 * time.Millisecond) //Mondayのgetを待ってる
-	c <- m
+	c4 <- m
 	// return m
 }
 
-func GetmenuFri(url string, c chan []string) {
+func GetmenuFri(url string, c5 chan []string) {
 	doc, _ := goquery.NewDocument(url)
 	var m []string
 	doc.Find("div > div > section > table > tbody > tr").Each(func(_ int, s *goquery.Selection) {
 		t := s.Find("td").First().Next().Next().Next().Next().Text()
 		m = append(m, t)
 	})
-	time.Sleep(1200 * time.Millisecond) //Mondayのgetを待ってる
-	c <- m
+	c5 <- m
 	// return m
 }
 
@@ -87,14 +82,18 @@ func GetmenuFri(url string, c chan []string) {
 func UpdateCafe() {
 	var menu []menus //menuのjson型構造体
 	url := "http://www.gakushoku.com/univ_mn2.php"
-	c := make(chan []string)
-	defer close(c)
-	go GetmenuMon(url, c)
-	go GetmenuTue(url, c)
-	go GetmenuWen(url, c)
-	go GetmenuThu(url, c)
-	go GetmenuFri(url, c)
-	mon, tue, wen, thu, fri := <-c, <-c, <-c, <-c, <-c
+	c1 := make(chan []string)
+	c2 := make(chan []string)
+	c3 := make(chan []string)
+	c4 := make(chan []string)
+	c5 := make(chan []string)
+
+	go GetmenuMon(url, c1)
+	go GetmenuTue(url, c2)
+	go GetmenuWen(url, c3)
+	go GetmenuThu(url, c4)
+	go GetmenuFri(url, c5)
+	mon, tue, wen, thu, fri := <-c1, <-c2, <-c3, <-c4, <-c5
 
 	menu = append(menu, menus{
 		Week:       "Monday",
