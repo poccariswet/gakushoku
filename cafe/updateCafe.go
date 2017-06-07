@@ -40,7 +40,7 @@ func getCafe() {
 			Higawari:   meshi[i],
 			Donmono:    meshi[i+5],
 			Fish:       meshi[i+10],
-			Salad:      meshi[i+15],
+			Salada:     meshi[i+15],
 			Dessert:    meshi[i+20],
 			Onepin:     meshi[i+25],
 			Pasta:      meshi[i+30],
