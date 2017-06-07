@@ -14,7 +14,7 @@ type menus struct {
 	Higawari   string `json:"higawari"`
 	Donmono    string `json:"donmono"`
 	Fish       string `json:"fish"`
-	Salad      string `json:"salada"`
+	Salada      string `json:"salada"`
 	Dessert    string `json:"desert"`
 	Onepin     string `json:"onepin"`
 	Pasta      string `json:"pasta"`
