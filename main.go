@@ -40,21 +40,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				switch message.Text {
-				case "学食":
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("学食情報を更新するなら\n'update', '学食更新'\nそれぞれの学食がみたいなら\n'月' ,'火' ,'水' ,'木' ,'金' \nを入力してください")).Do(); err != nil {
-						log.Print(err)
-					}
-				case "update":
-					cafe.UpdateCafe()
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("done update.")).Do(); err != nil {
-						log.Print(err)
-					}
 				case "学食更新":
 					cafe.UpdateCafe()
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("学食更新しました。")).Do(); err != nil {
 						log.Print(err)
 					}
-
 				case "月":
 					meshi := cafe.RequestCafeMon()
 					meshi2 := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", meshi.Week, meshi.Higawari, meshi.Donmono, meshi.Fish, meshi.Salada, meshi.Dessert, meshi.Onepin, meshi.Pasta, meshi.Menrui, meshi.EveningSet)
