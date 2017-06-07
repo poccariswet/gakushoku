@@ -21,27 +21,27 @@ func fileGet() {
 	}
 }
 
-func RequestCafeMon() menus { //[]string {
+func RequestCafeMon() menus { //月曜日
 	fileGet()
 	return me[0]
 }
 
-func RequestCafeTue() menus { //[]string {
+func RequestCafeTue() menus { //火曜日
 	fileGet()
 	return me[1]
 }
 
-func RequestCafeWen() menus { //[]string {
+func RequestCafeWen() menus { //水曜日
 	fileGet()
 	return me[2]
 }
 
-func RequestCafeThu() menus { //[]string {
+func RequestCafeThu() menus { //木曜日
 	fileGet()
 	return me[3]
 }
 
-func RequestCafeFri() menus { //[]string {
+func RequestCafeFri() menus { //金曜日
 	fileGet()
 	return me[4]
 }
