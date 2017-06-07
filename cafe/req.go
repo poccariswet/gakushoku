@@ -8,7 +8,6 @@ import (
 )
 
 var me []menus
-
 func fileGet() {
 	file, err := ioutil.ReadFile("json/meshi.json")
 	if err != nil {
