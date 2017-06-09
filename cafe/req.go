@@ -21,27 +21,32 @@ func fileGet() {
 	}
 }
 
-func RequestCafeMon() menus { //月曜日
+func RequestCafeMon() string { //月曜日
 	fileGet()
-	return me[0]
+	meshi := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", me[0].Week, me[0].Higawari, me[0].Donmono, me[0].Fish, me[0].Salada, me[0].Dessert, me[0].Onepin, me[0].Pasta, me[0].Menrui, me[0].EveningSet)
+	return meshi
 }
 
-func RequestCafeTue() menus { //火曜日
+func RequestCafeTue() string { //火曜日
 	fileGet()
-	return me[1]
+	meshi := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", me[1].Week, me[1].Higawari, me[1].Donmono, me[1].Fish, me[1].Salada, me[1].Dessert, me[1].Onepin, me[1].Pasta, me[1].Menrui, me[1].EveningSet)
+	return meshi
 }
 
-func RequestCafeWen() menus { //水曜日
+func RequestCafeWen() string { //水曜日
 	fileGet()
-	return me[2]
+	meshi := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", me[2].Week, me[2].Higawari, me[2].Donmono, me[2].Fish, me[2].Salada, me[2].Dessert, me[2].Onepin, me[2].Pasta, me[2].Menrui, me[2].EveningSet)
+	return meshi
 }
 
-func RequestCafeThu() menus { //木曜日
+func RequestCafeThu() string { //木曜日
 	fileGet()
-	return me[3]
+	meshi := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", me[3].Week, me[3].Higawari, me[3].Donmono, me[3].Fish, me[3].Salada, me[3].Dessert, me[3].Onepin, me[3].Pasta, me[3].Menrui, me[3].EveningSet)
+	return meshi
 }
 
-func RequestCafeFri() menus { //金曜日
+func RequestCafeFri() string { //金曜日
 	fileGet()
-	return me[4]
+	meshi := fmt.Sprintf("曜日: %s日替わり: %s丼もの: %s魚: %sサラダ: %sデザート: %s一品: %sパスタ: %s麺類: %s夕方セット: %s", me[4].Week, me[4].Higawari, me[4].Donmono, me[4].Fish, me[4].Salada, me[4].Dessert, me[4].Onepin, me[4].Pasta, me[4].Menrui, me[4].EveningSet)
+	return meshi
 }
