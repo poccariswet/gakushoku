@@ -22,13 +22,16 @@ type menus struct {
 	EveningSet string `json:"eveningset"`
 }
 
-const url = "http://www.gakushoku.com/univ_mn2.php"
+const (
+	url1 = "http://www.gakushoku.com/univ_mn2.php"
+	url2 = "http://www.gakushoku.com/univ_mn1.php"
+)
 
 var menu []menus
 
 func getCafe() {
 	weeks := []string{"Monday\n", "Tuesday\n", "Wednesday\n", "Thursday\n", "Friday\n"}
-	doc, _ := goquery.NewDocument(url)
+	doc, _ := goquery.NewDocument(url2)
 	var meshi []string
 	doc.Find("td").Each(func(_ int, s *goquery.Selection) {
 		data := s.First().Text()

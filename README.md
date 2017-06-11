@@ -19,3 +19,7 @@ $ go get github.com/PuerkitoBio/goquery
 
 ## Equipments
 - Go
+
+## Reference
+- 会津大学 学食
+<http://www.gakushoku.com/univ_home.php>
